@@ -90,6 +90,7 @@ function App() {
       <div className='pt-20'>
         <h2>Merchant: {callState.merchant}</h2>
         <h2>Reason: {callState.reason}</h2>
+        <h2>Phone: {callState.phone}</h2>
         <h2>Resolved: {callState.resolved ? 'Yes' : 'No'}</h2>
         <h2>Ticket: {callState.ticket ? 'Yes' : 'No'}</h2>
         <h2>Follow Up: {callState.followUp ? 'Yes' : 'No'}</h2>
