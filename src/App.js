@@ -13,10 +13,12 @@ function App() {
   })
 
   return (
-    <div className='App pt-10'>
-      <form className='grid grid-rows-5 grid-flow-col gap-4'>
+    <div className='App pt-10 bg-stone-500 min-h-screen'>
+      <form className='grid grid-rows-5 grid-flow-col gap-4 bg-orange-200 pt-4 w-4/6 mx-auto rounded-lg'>
         <div>
-          <label htmlFor='merchant'>Merchant</label>
+          <label htmlFor='merchant' className='pr-4'>
+            Merchant -{'>'}
+          </label>
           <input
             className='border-2 border-gray-500'
             type='text'
@@ -28,7 +30,9 @@ function App() {
           />
         </div>
         <div>
-          <label htmlFor='reason'>Reason</label>
+          <label htmlFor='reason' className='pr-4'>
+            Reason -{'>'}
+          </label>
           <input
             className='border-2 border-gray-500'
             type='text'
@@ -40,7 +44,9 @@ function App() {
           />
         </div>
         <div>
-          <label htmlFor='phone'>Phone</label>
+          <label htmlFor='phone' className='pr-4'>
+            Phone -{'>'}
+          </label>
           <input
             className='border-2 border-gray-500'
             type='text'
@@ -87,7 +93,7 @@ function App() {
         </div>
       </form>
 
-      <div className='pt-20'>
+      <div className='py-10 w-4/6 mx-auto bg-orange-100'>
         <h2>Merchant: {callState.merchant}</h2>
         <h2>Reason: {callState.reason}</h2>
         <h2>Phone: {callState.phone}</h2>
