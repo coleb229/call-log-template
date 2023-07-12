@@ -1,25 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
+import { useState } from 'react'
 
 function App() {
+  const [callState, setCallState] = useState({
+    merchant: '',
+    reason: '',
+    phone: '',
+    resolved: true,
+    ticket: true,
+    followUp: '',
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App pt-10'>
+      <form className='grid grid-rows-5 grid-flow-col gap-4'>
+        <div>
+          <label htmlFor='merchant'>Merchant</label>
+          <input
+            className='border-2 border-gray-500'
+            type='text'
+            name='merchant'
+            value={callState.merchant}
+            onChange={(e) =>
+              setCallState({ ...callState, merchant: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <label htmlFor='reason'>Reason</label>
+          <input
+            className='border-2 border-gray-500'
+            type='text'
+            name='reason'
+            value={callState.reason}
+            onChange={(e) =>
+              setCallState({ ...callState, reason: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <label htmlFor='phone'>Phone</label>
+          <input
+            className='border-2 border-gray-500'
+            type='text'
+            name='phone'
+            value={callState.phone}
+            onChange={(e) =>
+              setCallState({ ...callState, phone: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <label htmlFor='resolved'>Resolved</label>
+          <input
+            className='border-2 border-gray-500'
+            type='checkbox'
+            name='resolved'
+            checked={callState.resolved}
+            onChange={(e) =>
+              setCallState({ ...callState, resolved: e.target.checked })
+            }
+          />
+          <label htmlFor='followUp'>Follow Up</label>
+          <input
+            className='border-2 border-gray-500'
+            type='checkbox'
+            name='followUp'
+            checked={callState.followUp}
+            onChange={(e) =>
+              setCallState({ ...callState, followUp: e.target.checked })
+            }
+          />
+        </div>
+        <div>
+          <label htmlFor='ticket'>Ticket</label>
+          <input
+            className='border-2 border-gray-500'
+            type='checkbox'
+            name='ticket'
+            checked={callState.ticket}
+            onChange={(e) =>
+              setCallState({ ...callState, ticket: e.target.checked })
+            }
+          />
+        </div>
+      </form>
+
+      <div className='pt-20'>
+        <h2>Merchant: {callState.merchant}</h2>
+        <h2>Reason: {callState.reason}</h2>
+        <h2>Resolved: {callState.resolved ? 'Yes' : 'No'}</h2>
+        <h2>Ticket: {callState.ticket ? 'Yes' : 'No'}</h2>
+        <h2>Follow Up: {callState.followUp ? 'Yes' : 'No'}</h2>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
